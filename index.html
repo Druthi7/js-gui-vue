@@ -15,19 +15,15 @@
   <main class="container-fluid" id="vue-app">
 
     <h1>JavaScript + Vue.js for interactive apps!</h1>
-    <h3>Two-way data binding watches for changes in inputs and automatically updates outputs.</h3>
+    <h3>Given count of models and attributesPerResource display total attributes</h3>
 
 
     <p>Enter first number:
-      <input v-model="firstNumber" type="number">
+      <input v-model="resources" type="number">
     </p>
 
     <p>Enter second number:
-      <input v-model="secondNumber" type="number">
-    </p>
-
-    <p>Enter third number:
-      <input v-model="thirdNumber" type="number">
+      <input v-model="attributesPerModel" type="number">
     </p>
 
     <p>{{result}}</p>
@@ -42,8 +38,8 @@
 
     console.log('Declare testable functions.....................')
 
-    function mul(x, y, z) {
-      return x * y * z
+    function mul(x, y) {
+      return x * y 
     }
     console.log('mul=' * mul)
 
@@ -52,16 +48,14 @@
     new Vue({
       el: '#vue-app',
       data: {
-        firstNumber: 5,
-        secondNumber: 3,
-        thirdNumber: 2
+        resources: 5,
+        attributesPerModel: 2
       },
       computed: {
         result() {
-          const i = parseInt(this.firstNumber)
-          const j = parseInt(this.secondNumber)
-          const k = parseInt(this.thirdNumber)
-          return this.guest + ', number of students ' + mul(i, j, k) + '.'
+          const i = parseInt(this.resources)
+          const j = parseInt(this.attributesPerModel)
+          return this.guest + ', attributesPerResource  ' + mul(i, j) + '.'
         }
       }
     })
